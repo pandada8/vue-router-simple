@@ -1,7 +1,16 @@
 import Vue from 'vue'
-import App from './App.vue'
+import VueRouter from 'vue-router'
 
-new Vue({
-  el: 'body',
-  components: { App }
+Vue.use(VueRouter)
+
+let router = new VueRouter({
+	linkActiveClass: "active"
 })
+
+router.map({
+	"/": {
+		component: require("./App.vue")
+	}
+})
+
+router.start(Vue.extend({}), "#app")
